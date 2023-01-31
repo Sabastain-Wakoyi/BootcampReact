@@ -13,6 +13,7 @@ import {
 import { Home } from './pages/HomePage';
 import { Bootcamps } from './pages/Bootcamps';
 import BootcampDetails from './pages/BootcampDetail'
+import Api from './Components/AxiosAPIS/AxiosApis';
 
 
 
@@ -61,7 +62,8 @@ const router= createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}> </RouterProvider>
+    {/* <RouterProvider router={router}> </RouterProvider> */}
+    <Api></Api>
   </React.StrictMode>
 );
 
