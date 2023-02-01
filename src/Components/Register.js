@@ -74,7 +74,7 @@ const Register = () => {
   const handleSubmit = async (e) => {   
     e.preventDefault();
     try {
-      const response =  await axios.post('https://dummyjson.com/auth/login', {
+      const response =  await axios.post('http://localhost:8080/api/v1/user/signup', { 
       "fullname" : fullname, 
       "username" : username,
        "password": password,

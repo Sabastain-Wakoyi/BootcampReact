@@ -66,7 +66,8 @@ root.render(
   <React.StrictMode>
     {/* <RouterProvider router={router}> </RouterProvider> */}
     {/* <Api></Api> */}
-    <Login></Login>
+    {/* <Login></Login> */}
+    <Home></Home>
     
   </React.StrictMode>
 );
