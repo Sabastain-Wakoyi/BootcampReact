@@ -15,7 +15,7 @@ import { Bootcamps } from './pages/Bootcamps';
 import BootcampDetails from './pages/BootcampDetail'
 import Api from './Components/AxiosAPIS/AxiosApis';
 import Login from './Components/AxiosAPIS/Login';
-import { Abo } from './Components/AxiosAPIS/Login';
+
 
 
 
@@ -66,7 +66,8 @@ root.render(
   <React.StrictMode>
     {/* <RouterProvider router={router}> </RouterProvider> */}
     {/* <Api></Api> */}
-    <Abo></Abo>
+    <Login></Login>
+    
   </React.StrictMode>
 );
 

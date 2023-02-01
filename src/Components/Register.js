@@ -64,16 +64,22 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const Login = () => {
+    const [fullname, setFullname] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [phone, setPhone] = useState('');
+
   const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {   
     e.preventDefault();
     try {
       const response =  await axios.post('https://dummyjson.com/auth/login', {
-        "username" : username,
-        "password": password,
+      "fullname" : fullname, 
+      "username" : username,
+       "password": password,
+       "phone" : phone,
+
       });
       console.log(response.data);
     } catch (error) {
@@ -81,7 +87,18 @@ const Login = () => {
     }
   };
   return (
-    <form onSubmit={handleSubmit}>   
+    <form onSubmit={handleSubmit}> 
+
+<div>
+        <input
+          type="text"
+          placeholder="Fullname"
+          value={fullname}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      </div>
+
+
       <div>
         <input
           type="text"
@@ -97,11 +114,20 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
+
+      <div>
+        <input
+          type="number"
+          placeholder="Phone"
+          value={phone}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      </div>
       <button type="submit">Login</button>
       {error && <p>{error}</p>}
     </form>
   );
-};
+};     
 
 export default Login;
 
