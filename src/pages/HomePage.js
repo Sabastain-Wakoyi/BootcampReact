@@ -13,6 +13,7 @@ import { ContactInfo } from "../Components/Functional/ContactInfoSection"
 import { SimpleRef } from "../Components/Functional/component"
 import { useEffect, useState } from "react"
 import LoadingSpinner from "../Components/Spinner"
+import Register from "../Components/Register"
 
 export const Home = () => {
 
@@ -90,6 +91,7 @@ export const Home = () => {
                 <ContactInfo></ContactInfo>
                 <Footer></Footer>
                 <SimpleRef></SimpleRef>
+                <Register></Register>
 
             </div>
         </>

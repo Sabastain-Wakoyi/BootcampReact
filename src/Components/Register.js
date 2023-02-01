@@ -63,8 +63,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Login = () => {
-    const [fullname, setFullname] = useState('');
+const Register = () => {
+  const [fullname, setFullname] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [phone, setPhone] = useState('');
@@ -85,7 +85,7 @@ const Login = () => {
     } catch (error) {
       setError(error.message);
     }
-  };
+  };     
   return (
     <form onSubmit={handleSubmit}> 
 
@@ -129,5 +129,5 @@ const Login = () => {
   );
 };     
 
-export default Login;
+export default Register;
 
