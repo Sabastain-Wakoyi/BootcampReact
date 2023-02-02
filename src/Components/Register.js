@@ -101,7 +101,7 @@ const [        menuItems,    setMenuItems]= useState()
           onChange={(e) => setUsername(e.target.value)}
         />
       </div>
-      <button type="submit">Login</button>
+      <button type="submit">Register</button>
       {error && <p>{error}</p>}
 </Container>
     </>
