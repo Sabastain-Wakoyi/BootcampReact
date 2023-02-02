@@ -15,6 +15,7 @@ import { Bootcamps } from './pages/Bootcamps';
 import BootcampDetails from './pages/BootcampDetail'
 import Api from './Components/AxiosAPIS/AxiosApis';
 import Login from './Components/AxiosAPIS/Login';
+import Register from './Components/Register';
 
 
 
@@ -48,6 +49,16 @@ const router= createBrowserRouter([
           <Link to="/bootcamps"></Link>
         </>
     )
+  },
+
+  {
+    path: "/register",
+    element: (
+        <>
+          <Register></Register>
+          <Link to="/register"></Link>
+        </>
+    )
   }
   ,
   {
@@ -64,10 +75,10 @@ const router= createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <RouterProvider router={router}> </RouterProvider> */}
+     <RouterProvider router={router}> </RouterProvider> 
     {/* <Api></Api> */}
     {/* <Login></Login> */}
-    <Home></Home>
+    
     
   </React.StrictMode>
 );

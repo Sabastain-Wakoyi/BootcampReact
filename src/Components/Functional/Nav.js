@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 const baseUrl="http://localhost:8080"
 
@@ -23,6 +24,7 @@ export const NavBar = (props) => {
                                 props.items.map((item, index) => {
                                     return <li className="nav-item">
                                         <a href={item.href} className="nav-link">{item.text}</a>
+                                        {/* <Link className="nav-link" to={item.href}>{item.text}</Link> */}
                                     </li>
                                 })};
                         </ul>

@@ -1,75 +1,48 @@
-// import React, { useState } from 'react'
-// import Button from 'react-bootstrap/Button'
-// import axios from 'axios'
-
-// function Login() {
-
-//     const [user, setUser] = useState({
-//         username: '',
-//         password: ''
-//     })
-
-//     const handleForm = (name, value) => {
-//         setUser({
-//             ...user,
-//             [name]: value
-//         })
-//     }
-
-//     const handleSubmit = async e => {
-//         e.preventDefault()
-
-//         var data = JSON.stringify({
-//             "username": user.username,
-//             "password": user.password
-//           });
-          
-//           var config = {
-//             method: 'post',
-//             url: 'https://dummyjson.com/auth/login',
-//             headers: { 
-//               'Content-Type': 'application/json'
-//             },
-//             data : data
-//           };
-          
-//           axios(config)
-//           .then(function (response) {
-//             console.log(JSON.stringify(response.data));
-//           })
-//           .catch(function (error) {
-//             console.log(error);
-//           });
-    
-// }
-// return (
-//     <div>
-//       <input type={text} value="username"></input>
-//       <input type={text} value="password"></input>
-//                 <Button  type="submit" onClick={handleSubmit}>
-//                     Submit
-//                 </Button>
-//             </div>
-       
-// )
-// }
-
-// export default Login
-
-
-
-
    
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { NavBar } from './Functional/Nav';
+import LoadingSpinner from './Spinner';
 
+
+import Container from "react-bootstrap/Container"
 const Register = () => {
   const [fullname, setFullname] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [phone, setPhone] = useState('');
-
+const [        menuItems,    setMenuItems]= useState()
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    async function getMenus() {
+
+        try {
+            const response = await fetch("http://localhost:8080/uisettings/menus")
+            let json = response.json()
+            json
+                .then(data => {
+                    setMenuItems(data)
+                    console.log("All Data ", menuItems)
+                })
+
+        } catch (error) {
+
+            setMenuItems([
+                
+                { text: "Home", href: "/" },
+                { text: "Contact", href: "/contact" },
+                { text: "Abou Us", href: "/about" },
+                { text: "Bootcamps", href: "/bootcamps" },
+                { text: "Register", href: "/register" },
+            ])
+
+        }
+
+    }
+    getMenus() // IIF
+}, [])
+
 
   const handleSubmit = async (e) => {   
     e.preventDefault();
@@ -86,17 +59,22 @@ const Register = () => {
       setError(error.message);
     }
   };     
+  if (!menuItems) return <div> <LoadingSpinner></LoadingSpinner> </div>
   return (
-    <form onSubmit={handleSubmit}> 
 
-<div>
+    <>
+    
+    <NavBar items={menuItems}></NavBar>
+    
+
+<Container style={{"margin":"200px"}}>                                                                    
         <input
           type="text"
           placeholder="Fullname"
           value={fullname}
           onChange={(e) => setUsername(e.target.value)}
         />
-      </div>
+
 
 
       <div>
@@ -125,7 +103,8 @@ const Register = () => {
       </div>
       <button type="submit">Login</button>
       {error && <p>{error}</p>}
-    </form>
+</Container>
+    </>
   );
 };     
 

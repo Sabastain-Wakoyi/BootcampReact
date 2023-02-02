@@ -41,6 +41,7 @@ export const Home = () => {
                     { text: "Contact", href: "/contact" },
                     { text: "Abou Us", href: "/about" },
                     { text: "Bootcamps", href: "/bootcamps" },
+                    { text: "Register", href: "/register" },
                 ])
 
             }
